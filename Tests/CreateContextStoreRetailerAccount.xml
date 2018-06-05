@@ -1,0 +1,35 @@
+<testCase name="Create context store retailer account">
+	<steps>
+		<step action="LoginAsSPAdmin" />
+		<step action="Quicklink" category="quickLinkCategoryToyota" name="Create Context Store Account" />
+		<step action="clickRadio" name="Create" />
+		<step action="clickButton" name="Submit" />
+
+		<step action="setTextValue" name="firstname" value="[FirstName]" />
+		<step action="waitForInputToHaveContent" name="enterpriseId" />
+		<step action="readValue" name="enterpriseId" target="$value" />
+		<step action="setTextValue" name="lastname" value="[LastName]" />
+		<step action="waitForInputToHaveContent" name="displayName" />
+		<step action="setTextValue" name="email" value="[FirstName]@toyota.com" />
+		<step action="clickButton" name="Continue" />
+
+		<step action="waitForForm" name="Review Context Store Person" />
+		<step action="clickButton" name="Continue" />
+
+		<step action="setOptionValue" name="contextstore.userType" value="Centre User" />
+		<step action="setOptionValue" name="contextstore.context" value="Beadles Maidstone" />
+		<step action="clickButton" name="Continue" />
+
+		<step action="waitForForm" name="Review Context Store Account" />
+		<step action="clickButton" name="Continue" />
+
+		<step action="waitForHomeScreen" />
+	</steps>
+	<checks>
+		<check condition="mustHaveLinkWith" value="Context Store" />
+		<check condition="mustHaveLinkWith" value="External AD" />
+		<check condition="mustHaveLinkWith" value="TAM" />
+		<check condition="mustHaveLinkWith" value="Compass" />
+		<check condition="mustHaveLinkWith" value="DOA" />
+	</checks>
+</testCase>
